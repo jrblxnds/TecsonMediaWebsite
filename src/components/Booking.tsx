@@ -122,7 +122,6 @@ export default function Booking() {
 
   const websiteOptions = [
     { label: 'Business Site', value: 'Business Site' },
-    { label: 'E-Commerce', value: 'E-Commerce' },
     { label: 'Landing Page', value: 'Landing Page' },
     { label: 'Redesign', value: 'Redesign' },
     { label: 'Other', value: 'Other' },
@@ -178,23 +177,48 @@ export default function Booking() {
               Ready to elevate your digital presence? Book a consultation to discuss your project.
             </p>
 
-            <div className="mt-12 space-y-8">
-              <a href="https://calendly.com/tecsonmedia" target="_blank" className="flex items-center gap-6 group" rel="noreferrer">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-gold/20 bg-gold/5 group-hover:bg-gold/10 transition-all">
-                  <Calendar className="h-6 w-6 text-gold" />
+            <div className="mt-12 space-y-12">
+              <div className="space-y-6">
+                <a href="mailto:perseus@tecsonmedia.com" className="flex items-center gap-6 group" rel="noreferrer">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-gold/20 bg-gold/5 group-hover:bg-gold/10 transition-all">
+                    <Calendar className="h-6 w-6 text-gold" />
+                  </div>
+                  <div>
+                    <h4 className="text-[10px] font-sans font-extrabold uppercase tracking-widest text-gold text-left">Book a Consultation</h4>
+                    <p className="text-paper font-bold hover:text-gold transition-colors">perseus@tecsonmedia.com</p>
+                  </div>
+                </a>
+                <div className="flex items-center gap-6 text-left">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-gold/20 bg-gold/5">
+                    <Mail className="h-6 w-6 text-gold" />
+                  </div>
+                  <div>
+                    <h4 className="text-[10px] font-sans font-extrabold uppercase tracking-widest text-gold text-left">Direct Email</h4>
+                    <p className="text-paper font-bold underline underline-offset-4">perseus@tecsonmedia.com</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-[10px] font-sans font-extrabold uppercase tracking-widest text-gold text-left">Book a Consultation</h4>
-                  <p className="text-paper font-bold hover:text-gold transition-colors">calendly.com/tecsonmedia</p>
+              </div>
+
+              <div className="w-24 h-[1px] bg-gold/20"></div>
+
+              <div className="space-y-6">
+                <div className="flex items-center gap-6 text-left">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-gold/20 bg-gold/5">
+                    <Mail className="h-6 w-6 text-gold" />
+                   </div>
+                  <div>
+                    <h4 className="text-[10px] font-sans font-extrabold uppercase tracking-widest text-gold text-left">Partnership Inquiry</h4>
+                    <p className="text-paper font-bold underline underline-offset-4">zainnast225@gmail.com</p>
+                  </div>
                 </div>
-              </a>
-              <div className="flex items-center gap-6 text-left">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-gold/20 bg-gold/5">
-                  <Mail className="h-6 w-6 text-gold" />
-                </div>
-                <div>
-                  <h4 className="text-[10px] font-sans font-extrabold uppercase tracking-widest text-gold text-left">Direct Email</h4>
-                  <p className="text-paper font-bold underline underline-offset-4">perseus@tecsonmedia.com</p>
+                <div className="flex items-center gap-6 text-left">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-gold/20 bg-gold/5">
+                    <Phone className="h-6 w-6 text-gold" />
+                  </div>
+                  <div>
+                    <h4 className="text-[10px] font-sans font-extrabold uppercase tracking-widest text-gold text-left">Call Us</h4>
+                    <p className="text-paper font-bold underline underline-offset-4">416-456-3008</p>
+                  </div>
                 </div>
               </div>
             </div>

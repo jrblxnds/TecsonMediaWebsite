@@ -20,7 +20,7 @@ export default function Footer() {
               Boutique web design studio based in Toronto. We build digital legacies for businesses that demand excellence and results.
             </p>
             <div className="mt-8 flex gap-4">
-              <a href="https://www.youtube.com/@TECSONmedia" target="_blank" rel="noreferrer" className="h-10 w-10 flex items-center justify-center rounded-full border border-gold/10 bg-gold/5 text-gold hover:bg-gold hover:text-obsidian transition-all">
+              <a href="https://www.youtube.com/@PerseusTecson" target="_blank" rel="noreferrer" className="h-10 w-10 flex items-center justify-center rounded-full border border-gold/10 bg-gold/5 text-gold hover:bg-gold hover:text-obsidian transition-all">
                 <Youtube className="h-4 w-4" />
               </a>
             </div>
@@ -40,20 +40,37 @@ export default function Footer() {
           {/* Contact */}
           <div className="text-left">
             <h4 className="text-[10px] font-sans font-extrabold uppercase tracking-widest text-gold font-sans">Contact</h4>
-            <ul className="mt-8 space-y-4 font-sans text-sm font-medium text-warm-grey">
-              <li className="flex items-center gap-3">
-                <Mail className="h-3 w-3 text-gold" />
-                <span className="font-bold">perseus@tecsonmedia.com</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="h-3 w-3 text-gold" />
-                <span className="font-bold">647-491-1624</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <MapPin className="h-3 w-3 text-gold" />
-                <span className="font-bold">Toronto, Ontario</span>
-              </li>
-            </ul>
+            <div className="mt-8 space-y-8">
+              <ul className="space-y-4 font-sans text-sm font-medium text-warm-grey">
+                <li className="flex items-center gap-3">
+                  <Mail className="h-3 w-3 text-gold" />
+                  <span className="font-bold">perseus@tecsonmedia.com</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Phone className="h-3 w-3 text-gold" />
+                  <span className="font-bold">647-491-1624</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <MapPin className="h-3 w-3 text-gold" />
+                  <span className="font-bold">Toronto, Ontario</span>
+                </li>
+              </ul>
+              <div className="w-full h-[1px] bg-gold/10"></div>
+              <ul className="space-y-4 font-sans text-sm font-medium text-warm-grey">
+                <li className="flex items-center gap-3">
+                  <Mail className="h-3 w-3 text-gold" />
+                  <span className="font-bold">zainnast225@gmail.com</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Phone className="h-3 w-3 text-gold" />
+                  <span className="font-bold">416-456-3008</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <MapPin className="h-3 w-3 text-gold" />
+                  <span className="font-bold">Toronto, Ontario</span>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Schedule */}

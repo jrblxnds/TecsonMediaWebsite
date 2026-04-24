@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { ExternalLink, Plus } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 
-const categories = ['All', 'Commercial', 'Creative', 'Professional', 'E-Commerce'];
+const categories = ['All', 'Commercial', 'Creative', 'Professional'];
 
 const projects = [
   {
@@ -15,6 +15,14 @@ const projects = [
     description: 'High-conversion landing page for GTA’s premier plumbing service. Engineered for lead generation with localized SEO optimization.'
   },
   {
+    id: '3',
+    title: 'Perri Pools & Landscaping',
+    category: 'Professional',
+    imageUrl: 'https://i.postimg.cc/p5BtL7M6/perripools.png',
+    videoUrl: 'https://drive.google.com/uc?export=download&id=1LHywr52Z0f65L3CaR8Fq7E1CgLB8Y65d',
+    description: 'Immersive outdoor living showcase. Features elegant galleries and a seamless quote request system for high-end landscaping.'
+  },
+  {
     id: '2',
     title: 'JRBLXNDS Brand',
     category: 'Creative',
@@ -22,14 +30,6 @@ const projects = [
     videoUrl: 'https://drive.google.com/uc?export=download&id=18WNZNHGXN3hiuUlOxRdtycxH-HayNXMe', 
     projectUrl: 'https://jrblxndzzz.netlify.app',
     description: 'A bold digital destination for a luxury barber brand. Precision-focused UI designed to mirror the refined craft of grooming.'
-  },
-  {
-    id: '3',
-    title: 'Perri Pools & Landscaping',
-    category: 'Professional',
-    imageUrl: 'https://i.postimg.cc/p5BtL7M6/perripools.png',
-    videoUrl: 'https://drive.google.com/uc?export=download&id=1LHywr52Z0f65L3CaR8Fq7E1CgLB8Y65d',
-    description: 'Immersive outdoor living showcase. Features elegant galleries and a seamless quote request system for high-end landscaping.'
   },
   {
     id: '4',

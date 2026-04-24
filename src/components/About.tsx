@@ -16,9 +16,9 @@ export default function About() {
           >
             <div className="aspect-[4/5] overflow-hidden rounded-[3rem] border border-gold/10 bg-obsidian">
               <img 
-                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=800" 
+                src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1200" 
                 alt="Studio" 
-                className="h-full w-full object-cover grayscale opacity-60"
+                className="h-full w-full object-cover grayscale opacity-60 hover:grayscale-0 transition-all duration-700"
                 referrerPolicy="no-referrer"
               />
             </div>
