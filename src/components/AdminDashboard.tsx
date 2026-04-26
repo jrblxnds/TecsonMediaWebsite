@@ -36,7 +36,12 @@ import {
 } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 
-const ADMIN_EMAIL = 'perseus@tecsonmedia.com';
+const ADMIN_EMAILS = [
+  'perseus@tecsonmedia.com',
+  'ptecsonmedia@gmail.com',
+  'perseusgaming24@gmail.com',
+  'zainnast225@gmail.com'
+];
 
 interface Booking {
   id: string;
@@ -65,7 +70,7 @@ export default function AdminDashboard() {
   }, []);
 
   useEffect(() => {
-    if (!user || user.email !== ADMIN_EMAIL) return;
+    if (!user || (user.email && !ADMIN_EMAILS.includes(user.email))) return;
 
     const q = query(collection(db, 'bookings'), orderBy('createdAt', 'desc'));
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -125,7 +130,7 @@ export default function AdminDashboard() {
     );
   }
 
-  if (!user || user.email !== ADMIN_EMAIL) {
+  if (!user || (user.email && !ADMIN_EMAILS.includes(user.email))) {
     return (
       <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-obsidian px-6 text-center">
         <div className="mb-8 rounded-full bg-gold/10 p-6">

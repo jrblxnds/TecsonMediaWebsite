@@ -22,6 +22,33 @@
   p {
     @apply font-medium;
   }
+
+  /* Custom Scrollbar Styles */
+  /* Webkit browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0D0D0D;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #C9A84C;
+    border-radius: 10px;
+    border: 2px solid #0D0D0D;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #D4B96E;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #C9A84C #0D0D0D;
+  }
 }
 
 .noise-overlay {
