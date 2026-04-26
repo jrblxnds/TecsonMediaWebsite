@@ -60,6 +60,7 @@ export default function AdminDashboard() {
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [activeTab, setActiveTab] = useState<'all' | 'pending' | 'confirmed' | 'organized'>('all');
   const [searchTerm, setSearchTerm] = useState('');
+  const [authError, setAuthError] = useState<string | null>(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (u) => {
@@ -70,7 +71,7 @@ export default function AdminDashboard() {
   }, []);
 
   useEffect(() => {
-    if (!user || (user.email && !ADMIN_EMAILS.includes(user.email))) return;
+    if (!user || !user.email || !ADMIN_EMAILS.includes(user.email)) return;
 
     const q = query(collection(db, 'bookings'), orderBy('createdAt', 'desc'));
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -79,21 +80,37 @@ export default function AdminDashboard() {
         ...doc.data()
       })) as Booking[];
       setBookings(data);
+    }, (err) => {
+      console.error('Firestore snapshot error:', err);
+      setAuthError('Permission denied: You may not have administrative access.');
     });
 
     return () => unsubscribe();
   }, [user]);
 
   const login = async () => {
+    setAuthError(null);
     const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
     try {
-      await signInWithPopup(auth, provider);
-    } catch (error) {
+      const result = await signInWithPopup(auth, provider);
+      if (result.user && result.user.email && !ADMIN_EMAILS.includes(result.user.email)) {
+        setAuthError(`Account ${result.user.email} is not authorized for administrative access.`);
+      }
+    } catch (error: any) {
       console.error('Login error:', error);
+      setAuthError(error.message || 'Login failed. Please try again.');
     }
   };
 
-  const logout = () => signOut(auth);
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      setAuthError(null);
+    } catch (error: any) {
+      console.error('Logout error:', error);
+    }
+  };
 
   const updateStatus = async (id: string, status: Booking['status']) => {
     try {
@@ -122,6 +139,8 @@ export default function AdminDashboard() {
     return matchesTab && matchesSearch;
   });
 
+  const isAuthorized = user && user.email && ADMIN_EMAILS.includes(user.email);
+
   if (loading) {
     return (
       <div className="fixed inset-0 z-[100] flex items-center justify-center bg-obsidian text-gold">
@@ -130,7 +149,7 @@ export default function AdminDashboard() {
     );
   }
 
-  if (!user || (user.email && !ADMIN_EMAILS.includes(user.email))) {
+  if (!isAuthorized) {
     return (
       <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-obsidian px-6 text-center">
         <div className="mb-8 rounded-full bg-gold/10 p-6">
@@ -140,6 +159,16 @@ export default function AdminDashboard() {
         <p className="mt-4 max-w-sm font-sans text-warm-grey">
           This portal is reserved for Tecson Media administration. Please sign in with the authorized account.
         </p>
+
+        {authError && (
+          <div className="mt-6 rounded-xl bg-red-500/10 p-4 border border-red-500/20 max-w-sm">
+            <div className="flex items-center gap-3 text-red-500">
+              <AlertCircle className="h-4 w-4" />
+              <p className="text-xs font-bold">{authError}</p>
+            </div>
+          </div>
+        )}
+
         {!user ? (
           <button 
             onClick={login}
